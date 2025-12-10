@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Menu } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -142,34 +143,6 @@ const Header: React.FC = () => {
               ))}
             </nav>
 
-            {/* Desktop Hire Me */}
-            <motion.div
-              className="hidden lg:flex items-center mr-4 lg:mr-6"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <motion.a
-                href="#contact"
-                className="px-8 py-3 font-bold rounded-2xl shadow-2xl bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-purple-500/40 hover:shadow-purple-500/60 transition-all duration-300 group"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick('#contact');
-                }}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="flex items-center space-x-2">
-                  <span>Hire Me</span>
-                  <motion.div
-                    className="w-0 group-hover:w-2 h-0.5 bg-white rounded-full transition-all duration-300"
-                    animate={{ width: 0 }}
-                    whileHover={{ width: 8 }}
-                  />
-                </span>
-              </motion.a>
-            </motion.div>
-
             {/* Mobile Menu Button */}
             <motion.button
               className="lg:hidden p-3 rounded-xl transition-all duration-300 mr-2 flex items-center justify-center bg-gray-100 text-gray-700 hover:bg-gray-200"
@@ -177,26 +150,13 @@ const Header: React.FC = () => {
               whileTap={{ scale: 0.93 }}
               onClick={() => setIsMenuOpen(true)}
             >
-              <div className="relative w-6 h-6 flex items-center justify-center">
-                <motion.span
-                  className="absolute h-0.5 w-5 rounded-full bg-gray-800"
-                  initial={{ y: -5, opacity: 1 }}
-                  animate={{ y: -5, opacity: 1 }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
-                />
-                <motion.span
-                  className="absolute h-0.5 w-5 rounded-full bg-gray-800"
-                  initial={{ opacity: 1 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.05 }}
-                />
-                <motion.span
-                  className="absolute h-0.5 w-5 rounded-full bg-gray-800"
-                  initial={{ y: 5, opacity: 1 }}
-                  animate={{ y: 5, opacity: 1 }}
-                  transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.1 }}
-                />
-              </div>
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0.7 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Menu className="w-6 h-6" />
+              </motion.div>
             </motion.button>
           </div>
         </div>
@@ -260,8 +220,8 @@ const Header: React.FC = () => {
                     key={item.name}
                     href={item.href}
                     className={`flex items-center justify-between w-full p-4 rounded-xl font-semibold transition-all duration-300 group ${activeSection === item.href.slice(1)
-                        ? 'text-purple-700 bg-purple-50/80 shadow-lg'
-                        : 'text-gray-700 hover:text-purple-700 hover:bg-gray-50/80'
+                      ? 'text-purple-700 bg-purple-50/80 shadow-lg'
+                      : 'text-gray-700 hover:text-purple-700 hover:bg-gray-50/80'
                       }`}
                     onClick={(e) => {
                       e.preventDefault();
@@ -276,8 +236,8 @@ const Header: React.FC = () => {
                     <span>{item.name}</span>
                     <motion.div
                       className={`w-2 h-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 ${activeSection === item.href.slice(1)
-                          ? 'opacity-100'
-                          : 'opacity-0 group-hover:opacity-100'
+                        ? 'opacity-100'
+                        : 'opacity-0 group-hover:opacity-100'
                         } transition-opacity duration-300`}
                     />
                   </motion.a>

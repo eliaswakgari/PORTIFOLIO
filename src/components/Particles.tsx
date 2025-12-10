@@ -18,10 +18,10 @@ const Particles: React.FC = () => {
       particle.style.left = `${Math.random() * 100}%`;
       particle.style.top = `${Math.random() * 100}%`;
       
-      const duration = Math.random() * 20 + 10;
+      const duration = Math.random() * 10 + 10;
       particle.style.animationDuration = `${duration}s`;
       
-      const delay = Math.random() * 5;
+      const delay = Math.random() * 2;
       particle.style.animationDelay = `${delay}s`;
       
       container.appendChild(particle);

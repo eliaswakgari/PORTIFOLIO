@@ -33,22 +33,23 @@ const Hero: React.FC = () => {
     }
   ];
 
-  // Star data for animated background
-  const stars = Array.from({ length: 50 }, (_, i) => ({
+  // Star data for animated background: many light stars with different sizes
+  const stars = Array.from({ length: 70 }, (_, i) => ({
     id: i,
-    size: Math.random() * 3 + 1,
+    size: Math.random() * 2.2 + 1, // small, subtle dots
     x: Math.random() * 100,
     y: Math.random() * 100,
     color: [
-      'bg-purple-400',
-      'bg-pink-400',
-      'bg-blue-400',
-      'bg-cyan-400',
-      'bg-yellow-400',
-      'bg-green-400'
+      'bg-purple-300',
+      'bg-pink-300',
+      'bg-blue-300',
+      'bg-cyan-300',
+      'bg-yellow-300',
+      'bg-emerald-300'
     ][Math.floor(Math.random() * 6)],
-    duration: 3 + Math.random() * 4,
-    delay: Math.random() * 5
+    // a bit faster twinkle, still smooth
+    duration: 3 + Math.random() * 1.5,
+    delay: Math.random() * 2
   }));
 
   useEffect(() => {
@@ -109,9 +110,7 @@ const Hero: React.FC = () => {
             }}
             animate={{
               scale: [1, 1.5, 1],
-              opacity: [0.3, 1, 0.3],
-              x: [0, Math.random() * 20 - 10, 0],
-              y: [0, Math.random() * 20 - 10, 0],
+              opacity: [0.25, 0.95, 0.25],
             }}
             transition={{
               duration: star.duration,
@@ -214,7 +213,7 @@ const Hero: React.FC = () => {
 
             {/* Enhanced Description Paragraph - Split into 2 lines */}
             <motion.div
-              className="mt-6 sm:mt-8 mb-6 sm:mb-8 space-y-3 sm:space-y-4"
+              className="mt-6 sm:mt-8 mb-4 sm:mb-6 space-y-3 sm:space-y-4"
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -239,6 +238,48 @@ const Hero: React.FC = () => {
               >
                 digital solutions.
               </motion.p>
+            </motion.div>
+
+            {/* Social Media Icons - inline with text, centered left */}
+            <motion.div
+              className="mt-4 sm:mt-6 flex justify-center lg:justify-start gap-4 sm:gap-5"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.3 }}
+            >
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`
+                    relative group flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full
+                    bg-gradient-to-br ${social.color}
+                    shadow-lg backdrop-blur-sm border border-white/20
+                    transition-all duration-300 transform hover:scale-110 hover:shadow-xl
+                  `}
+                  whileTap={{ scale: 0.94 }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: 1.3 + index * 0.12,
+                    type: "spring",
+                    stiffness: 260
+                  }}
+                >
+                  <div
+                    className={`absolute inset-0 rounded-full bg-gradient-to-br ${social.color} blur-md opacity-0 group-hover:opacity-40 transition-all duration-300 -z-10`}
+                  />
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.05 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <social.icon className="text-white" size={20} />
+                  </motion.div>
+                </motion.a>
+              ))}
             </motion.div>
           </motion.div>
 
@@ -324,79 +365,6 @@ const Hero: React.FC = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Social Media Icons at Bottom Left */}
-      <motion.div
-        className="absolute bottom-8 left-8 z-20"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 1.4 }}
-      >
-        <motion.div
-          className="flex flex-col items-start space-y-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.6 }}
-        >
-          {socialLinks.map((social, index) => (
-            <motion.a
-              key={social.label}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`
-                relative group flex items-center justify-center w-12 h-12 rounded-xl 
-                bg-gradient-to-br ${social.color} 
-                shadow-lg backdrop-blur-sm border border-white/20
-                transition-all duration-300 transform
-                hover:scale-110 hover:shadow-xl
-              `}
-              whileHover={{
-                x: 8,
-                transition: { type: "spring", stiffness: 500, damping: 15 }
-              }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: 1.7 + index * 0.15,
-                type: "spring",
-                stiffness: 300
-              }}
-            >
-              {/* Background glow on hover */}
-              <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${social.color} blur-md opacity-0 group-hover:opacity-50 transition-all duration-300 -z-10`} />
-
-              {/* Icon with hover animation */}
-              <motion.div
-                whileHover={{ rotate: 360, scale: 1.1 }}
-                transition={{ duration: 0.4 }}
-              >
-                <social.icon
-                  className="text-white"
-                  size={20}
-                />
-              </motion.div>
-
-              {/* External link indicator */}
-              <ExternalLink
-                className="absolute -top-1 -right-1 text-white bg-slate-800/90 rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-90 shadow-md"
-                size={10}
-              />
-
-              {/* Tooltip on the right */}
-              <div className="absolute left-14 top-1/2 transform -translate-y-1/2 bg-slate-800/95 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap backdrop-blur-sm border border-white/10 shadow-lg">
-                {social.label}
-                <div className="absolute -left-1 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-slate-800/95 rotate-45"></div>
-              </div>
-
-              {/* Pulse effect on hover */}
-              <div className="absolute inset-0 rounded-xl border border-white/0 group-hover:border-white/20 transition-all duration-300"></div>
-            </motion.a>
-          ))}
-        </motion.div>
-      </motion.div>
     </section>
   );
 };
