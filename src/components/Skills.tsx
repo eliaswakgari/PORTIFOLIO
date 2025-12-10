@@ -74,9 +74,8 @@ const Skills: React.FC = () => {
   return (
     <section
       id="skills"
-      className="py-32 md:py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 relative overflow-hidden"
       ref={ref}
-      style={{ margin: "100px 50px", padding: "50px" }}
+      className="bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 relative overflow-hidden py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-12"
     >
 
       {/* Background Blobs */}
@@ -86,7 +85,7 @@ const Skills: React.FC = () => {
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
           className="text-center mb-16"
@@ -145,10 +144,10 @@ const Skills: React.FC = () => {
               <motion.div
                 key={index}
                 className="group relative"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
+                initial={{ opacity: 0, y: 30, scale: 0.97 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.6, delay: index * 0.12, ease: 'easeOut' }}
+                whileHover={{ y: -8, scale: 1.02 }}
               >
                 {/* Glow & Hover */}
                 <div className={`absolute -inset-0.5 bg-gradient-to-r ${service.gradient} rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300 -z-10`} />

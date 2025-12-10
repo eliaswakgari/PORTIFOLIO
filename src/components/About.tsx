@@ -19,8 +19,7 @@ const About: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative overflow-hidden text-white py-28"
-      style={{ minHeight: "90vh", padding: "50px 10px" }}
+      className="relative overflow-hidden text-white py-20 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-12 min-h-[90vh]"
     >
       {/* Hero-style animated background */}
       <div className="absolute inset-0 z-0">
@@ -59,7 +58,7 @@ const About: React.FC = () => {
       </div>
 
       {/* Main content */}
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-20">
           {/* Left: portrait */}
           <motion.div

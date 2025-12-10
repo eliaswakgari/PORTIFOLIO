@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const fullText = "Elias Walkgari";
+  const fullText = " Elias ";
 
   const socialLinks = [
     {
@@ -85,8 +85,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="h-screen flex flex-col justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
-      style={{ marginTop: '0px', paddingTop: '0px' }}
+      className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-0 pb-16 sm:pb-20"
     >
       {/* Enhanced Animated Background with Stars */}
       <div className="absolute inset-0 z-0">
@@ -162,8 +161,8 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col justify-center">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10 flex-1 flex flex-col justify-center">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
           {/* Text Content */}
           <motion.div
             className="lg:w-1/2 text-center lg:text-left"
@@ -172,24 +171,24 @@ const Hero: React.FC = () => {
             variants={containerVariants}
           >
             <motion.div
-              className="mb-8"
+              className="mb-6 sm:mb-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-white">
+              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-white">
                 Hi, I'm
               </h1>
 
               {/* Animated Name */}
-              <div className="min-h-[120px] lg:min-h-[140px] flex items-center justify-center lg:justify-start mb-8">
+              <div className="min-h-[96px] sm:min-h-[120px] lg:min-h-[140px] flex items-center justify-center lg:justify-start mb-6 sm:mb-8">
                 <motion.div
                   className="text-4xl lg:text-6xl font-bold"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 1 }}
                 >
-                  <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(168,85,247,0.45)]">
                     {displayText}
                   </span>
                   <span className="animate-pulse text-purple-400">|</span>
@@ -199,12 +198,12 @@ const Hero: React.FC = () => {
 
             {/* Title and Location */}
             <motion.div
-              className="space-y-6 mb-8"
+              className="space-y-4 sm:space-y-6 mb-6 sm:mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <h2 className="text-2xl lg:text-3xl font-semibold text-white/90">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white/90">
                 MERN Stack Developer
               </h2>
               <div className="flex items-center justify-center lg:justify-start space-x-3 text-lg text-white/70">
@@ -215,7 +214,7 @@ const Hero: React.FC = () => {
 
             {/* Enhanced Description Paragraph - Split into 2 lines */}
             <motion.div
-              className="mt-8 mb-8 space-y-4"
+              className="mt-6 sm:mt-8 mb-6 sm:mb-8 space-y-3 sm:space-y-4"
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -225,7 +224,7 @@ const Hero: React.FC = () => {
               }}
             >
               <motion.p
-                className="text-xl lg:text-2xl text-white/80 leading-relaxed font-light tracking-wide text-center lg:text-left"
+                className="text-base sm:text-lg lg:text-2xl text-white/80 leading-relaxed font-light tracking-wide text-center lg:text-left"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 1.0 }}
@@ -233,7 +232,7 @@ const Hero: React.FC = () => {
                 I'm a passionate full-stack developer who turns innovative ideas into scalable
               </motion.p>
               <motion.p
-                className="text-xl lg:text-2xl text-white/80 leading-relaxed font-light tracking-wide text-center lg:text-left"
+                className="text-base sm:text-lg lg:text-2xl text-white/80 leading-relaxed font-light tracking-wide text-center lg:text-left"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 1.1 }}
@@ -245,7 +244,7 @@ const Hero: React.FC = () => {
 
           {/* Profile Image - Clear and Visible */}
           <motion.div
-            className="lg:w-1/2 flex justify-center"
+            className="lg:w-1/2 flex justify-center mt-10 lg:mt-0"
             initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 1, delay: 0.5, type: "spring" }}
