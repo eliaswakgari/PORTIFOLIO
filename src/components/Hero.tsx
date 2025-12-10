@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Github, Linkedin, Facebook, ExternalLink } from 'lucide-react';
+import { MapPin, Github, Linkedin, Facebook} from 'lucide-react';
 
 const Hero: React.FC = () => {
   const [displayText, setDisplayText] = useState("");
