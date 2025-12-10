@@ -1,51 +1,51 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { technicalSkills, professionalSkills } from "../data/portfolioData";
-import { Code, Palette, Database, Server, Cpu, Smartphone, Cloud } from "lucide-react";
+import { Code, Database, Server, Cpu, Smartphone, Cloud } from "lucide-react";
 
 const Skills: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const services = [
-    { 
-      icon: Code, 
-      title: "Frontend Development", 
+    {
+      icon: Code,
+      title: "Frontend Development",
       description: "React, TypeScript, Tailwind CSS",
       gradient: "from-blue-500 to-cyan-500",
       tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"]
     },
-    { 
-      icon: Server, 
-      title: "Backend Development", 
+    {
+      icon: Server,
+      title: "Backend Development",
       description: "Node.js, Express, MongoDB",
       gradient: "from-green-500 to-emerald-500",
       tech: ["Node.js", "Express", "MongoDB", "REST APIs"]
     },
-    { 
-      icon: Database, 
-      title: "Database Design", 
+    {
+      icon: Database,
+      title: "Database Design",
       description: "MongoDB, MySQL, PostgreSQL",
       gradient: "from-purple-500 to-pink-500",
-      tech: ["MongoDB", "MySQL","Redis"]
+      tech: ["MongoDB", "MySQL", "Redis"]
     },
-    { 
-      icon: Cpu, 
-      title: "State Management", 
+    {
+      icon: Cpu,
+      title: "State Management",
       description: "Redux Toolkit, Context API",
       gradient: "from-orange-500 to-red-500",
-      tech: ["Redux Toolkit", "Context API" ]
+      tech: ["Redux Toolkit", "Context API"]
     },
-    { 
-      icon: Smartphone, 
-      title: "Responsive Design", 
+    {
+      icon: Smartphone,
+      title: "Responsive Design",
       description: "Mobile-first, Cross-browser",
       gradient: "from-indigo-500 to-purple-500",
       tech: ["Mobile First", "Cross-browser"]
     },
-    { 
-      icon: Cloud, 
-      title: "Deployment", 
+    {
+      icon: Cloud,
+      title: "Deployment",
       description: "Vercel, Netlify, Render",
       gradient: "from-teal-500 to-blue-500",
       tech: ["Vercel", "Netlify", "Render",]
@@ -60,7 +60,7 @@ const Skills: React.FC = () => {
           <span>{skill.percentage}%</span>
         </div>
         <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
-          <motion.div 
+          <motion.div
             className="h-3 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 rounded-full"
             initial={{ width: 0 }}
             animate={isInView ? { width: `${skill.percentage}%` } : { width: 0 }}
@@ -72,12 +72,12 @@ const Skills: React.FC = () => {
   };
 
   return (
-<section
-  id="skills"
-  className="py-32 md:py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 relative overflow-hidden"
-  ref={ref}
-  style={{margin:"100px 50px",padding:"50px"}}
->
+    <section
+      id="skills"
+      className="py-32 md:py-20 bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 relative overflow-hidden"
+      ref={ref}
+      style={{ margin: "100px 50px", padding: "50px" }}
+    >
 
       {/* Background Blobs */}
       <div className="absolute inset-0 z-0">
@@ -152,7 +152,7 @@ const Skills: React.FC = () => {
               >
                 {/* Glow & Hover */}
                 <div className={`absolute -inset-0.5 bg-gradient-to-r ${service.gradient} rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300 -z-10`} />
-                
+
                 {/* Service Card */}
                 <div className="relative bg-slate-800/50 backdrop-blur-xl rounded-xl border border-white/10 p-8 h-full group-hover:border-white/30 transition-all duration-500 overflow-hidden shadow-lg">
                   {/* Icon */}

@@ -9,7 +9,7 @@ const About: React.FC = () => {
   const [active, setActive] = useState<Tab>("Skills");
 
   // Floating particles (optional subtle effect)
-  const particles = Array.from({ length: 20 }, (_, i) => ({
+  const particles = Array.from({ length: 20 }, () => ({
     x: Math.random() * 100,
     y: Math.random() * 100,
     size: Math.random() * 4 + 2,
@@ -101,9 +101,8 @@ const About: React.FC = () => {
                     <button
                       key={t}
                       onClick={() => setActive(t)}
-                      className={`relative pb-2 text-lg md:text-xl font-medium focus:outline-none ${
-                        isActive ? "text-white" : "text-white/60"
-                      }`}
+                      className={`relative pb-2 text-lg md:text-xl font-medium focus:outline-none ${isActive ? "text-white" : "text-white/60"
+                        }`}
                       aria-current={isActive ? "page" : undefined}
                     >
                       {t}

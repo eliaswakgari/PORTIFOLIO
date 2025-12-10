@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
     y: Math.random() * 100,
     color: [
       'bg-purple-400',
-      'bg-pink-400', 
+      'bg-pink-400',
       'bg-blue-400',
       'bg-cyan-400',
       'bg-yellow-400',
@@ -72,6 +72,7 @@ const Hero: React.FC = () => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
+
     visible: {
       opacity: 1,
       transition: {
@@ -81,21 +82,9 @@ const Hero: React.FC = () => {
     }
   };
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  };
-
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       className="h-screen flex flex-col justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
       style={{ marginTop: '0px', paddingTop: '0px' }}
     >
@@ -107,7 +96,7 @@ const Hero: React.FC = () => {
         <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-500"></div>
         <div className="absolute top-3/4 left-1/3 w-56 h-56 bg-cyan-500/15 rounded-full blur-3xl animate-pulse delay-1500"></div>
         <div className="absolute bottom-1/3 right-1/3 w-52 h-52 bg-yellow-500/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
-        
+
         {/* Animated Stars */}
         {stars.map((star) => (
           <motion.div
@@ -176,7 +165,7 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10 flex-1 flex flex-col justify-center">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Text Content */}
-          <motion.div 
+          <motion.div
             className="lg:w-1/2 text-center lg:text-left"
             initial="hidden"
             animate="visible"
@@ -191,7 +180,7 @@ const Hero: React.FC = () => {
               <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-white">
                 Hi, I'm
               </h1>
-              
+
               {/* Animated Name */}
               <div className="min-h-[120px] lg:min-h-[140px] flex items-center justify-center lg:justify-start mb-8">
                 <motion.div
@@ -229,13 +218,13 @@ const Hero: React.FC = () => {
               className="mt-8 mb-8 space-y-4"
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ 
-                duration: 0.8, 
+              transition={{
+                duration: 0.8,
                 delay: 0.9,
                 ease: "easeOut"
               }}
             >
-              <motion.p 
+              <motion.p
                 className="text-xl lg:text-2xl text-white/80 leading-relaxed font-light tracking-wide text-center lg:text-left"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -243,7 +232,7 @@ const Hero: React.FC = () => {
               >
                 I'm a passionate full-stack developer who turns innovative ideas into scalable
               </motion.p>
-              <motion.p 
+              <motion.p
                 className="text-xl lg:text-2xl text-white/80 leading-relaxed font-light tracking-wide text-center lg:text-left"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -255,7 +244,7 @@ const Hero: React.FC = () => {
           </motion.div>
 
           {/* Profile Image - Clear and Visible */}
-          <motion.div 
+          <motion.div
             className="lg:w-1/2 flex justify-center"
             initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -274,10 +263,10 @@ const Hero: React.FC = () => {
             >
               {/* Subtle Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-xl opacity-5"></div>
-              
+
               {/* Main Image Container - Clear and Visible */}
               <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full border-4 border-white/10 overflow-hidden shadow-2xl">
-                <img 
+                <img
                   src="/assets/eli.jpg"
                   alt="Elias Walkgari - MERN Stack Developer"
                   className="w-full h-full object-cover brightness-105 contrast-105"
@@ -285,7 +274,7 @@ const Hero: React.FC = () => {
                     (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
                   }}
                 />
-                
+
                 {/* Subtle Animated Border */}
                 <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-purple-400/50 via-pink-400/50 to-blue-400/50 bg-[length:200%_100%] animate-gradient-x"></div>
               </div>
@@ -338,13 +327,13 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Social Media Icons at Bottom Left */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-8 left-8 z-20"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 1.4 }}
       >
-        <motion.div 
+        <motion.div
           className="flex flex-col items-start space-y-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -363,15 +352,15 @@ const Hero: React.FC = () => {
                 transition-all duration-300 transform
                 hover:scale-110 hover:shadow-xl
               `}
-              whileHover={{ 
+              whileHover={{
                 x: 8,
                 transition: { type: "spring", stiffness: 500, damping: 15 }
               }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ 
-                duration: 0.5, 
+              transition={{
+                duration: 0.5,
                 delay: 1.7 + index * 0.15,
                 type: "spring",
                 stiffness: 300
@@ -379,24 +368,24 @@ const Hero: React.FC = () => {
             >
               {/* Background glow on hover */}
               <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${social.color} blur-md opacity-0 group-hover:opacity-50 transition-all duration-300 -z-10`} />
-              
+
               {/* Icon with hover animation */}
               <motion.div
                 whileHover={{ rotate: 360, scale: 1.1 }}
                 transition={{ duration: 0.4 }}
               >
-                <social.icon 
-                  className="text-white" 
-                  size={20} 
+                <social.icon
+                  className="text-white"
+                  size={20}
                 />
               </motion.div>
-              
+
               {/* External link indicator */}
-              <ExternalLink 
-                className="absolute -top-1 -right-1 text-white bg-slate-800/90 rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-90 shadow-md" 
-                size={10} 
+              <ExternalLink
+                className="absolute -top-1 -right-1 text-white bg-slate-800/90 rounded-full p-0.5 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-90 shadow-md"
+                size={10}
               />
-              
+
               {/* Tooltip on the right */}
               <div className="absolute left-14 top-1/2 transform -translate-y-1/2 bg-slate-800/95 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap backdrop-blur-sm border border-white/10 shadow-lg">
                 {social.label}
